@@ -66,6 +66,7 @@
     </a>
     <a class="btn alt" href="https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/lalo-vs-gus.mp4"
        target="_blank" rel="noopener">Mirror (GitHub)</a>
+    <button class="btn alt" id="copy" type="button">Copy link</button>
   </div>
 
   <div class="meta">
@@ -78,7 +79,8 @@
   <ul class="chapters" id="chips"></ul>
 
   <div class="foot">
-    If the download button is blocked by a sandboxed viewer, copy this link and open it in your browser:
+    Downloads are blocked inside sandboxed viewers — that is the platform, not this page.
+    <b>Copy link</b> (or long-press the URL below) and open it in Chrome or Safari:
     <code>https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/lalo-vs-gus.mp4</code>
   </div>
 </div>
@@ -94,6 +96,19 @@
     v0.src = MIRROR + "lalo-vs-gus.mp4";
     v0.load();
   });
+  var copy = document.getElementById("copy");
+  if (copy) copy.onclick = function () {
+    var url = "https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/lalo-vs-gus.mp4";
+    var done = function () { copy.textContent = "Copied — paste in your browser"; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
+    else fallback();
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = url; document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) { copy.textContent = "Select the link below"; }
+      document.body.removeChild(t);
+    }
+  };
   var beats = [
     ["I", "The hook", 0, "a"], ["II", "The case for Gus", 12, "s"],
     ["III", "Procedural menace", 24, "s"], ["IV", "The entrance", 36, "a"],
