@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Striker Positioning — download</title>
+<style>
+  :root{--gold:#F2C230}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;min-height:100vh;padding:26px 18px 40px;color:#f4f6f2;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:radial-gradient(120% 80% at 50% 0%,#1b3a22 0%,#0b1512 55%,#070d0b 100%)}
+  .wrap{max-width:620px;margin:0 auto}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  h1{font-size:clamp(26px,7vw,40px);line-height:1.05;margin:10px 0 6px;letter-spacing:-.01em}
+  h1 span{color:var(--gold)}
+  .meta{color:#9aa79f;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
+  .btn{display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:14px;
+    text-decoration:none;color:#161004;background:linear-gradient(180deg,#ffd85c,#F2C230);
+    box-shadow:0 14px 34px rgba(242,194,48,.22);margin-bottom:12px}
+  .btn:active{transform:translateY(1px)}
+  .btn b{display:block;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+  .btn small{display:block;font-size:11.5px;letter-spacing:.04em;opacity:.7;margin-top:3px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .row a{flex:1 1 150px;text-align:center;padding:13px 10px;border-radius:11px;text-decoration:none;
+    color:#dfe6dd;border:1px solid rgba(255,255,255,.16);font-size:11px;letter-spacing:.13em;
+    text-transform:uppercase;background:rgba(255,255,255,.03)}
+  .row a:active{background:rgba(255,255,255,.1)}
+  video{width:100%;border-radius:12px;margin:18px 0 6px;background:#000;display:block}
+  .note{color:#8d9a92;font-size:12.5px;line-height:1.6;margin-top:18px}
+  .note b{color:#cfd8d1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">2-minute tactics explainer</div>
+  <h1>Striker <span>Positioning</span></h1>
+  <div class="meta">1920×1080 · 30 fps · 2:00 · narrated</div>
+
+  <a class="btn" href="renders/striker-positioning.mp4" download="striker-positioning.mp4">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
+    <span><b>Download video</b><small>striker-positioning.mp4 · 14.9 MB · 1080p</small></span>
+  </a>
+
+  <div class="row">
+    <a href="renders/striker-positioning-480p.mp4" download="striker-positioning-480p.mp4">480p · 2.6 MB</a>
+    <a href="renders/striker-positioning-silent.mp4" download="striker-positioning-silent.mp4">Silent cut</a>
+    <a href="renders/poster.png" download="striker-positioning-poster.png">Poster frame</a>
+  </div>
+
+  <video controls playsinline preload="none" poster="renders/poster.png" src="renders/striker-positioning-480p.mp4"></video>
+
+  <p class="note">
+    If a button does nothing, your viewer is blocking the download — open the
+    <b>live preview</b> from the chat instead, where downloads are allowed.
+  </p>
+</div>
+</body>
+</html>
