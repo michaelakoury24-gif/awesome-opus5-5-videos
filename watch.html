@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lalo vs Gus — 2:00 video essay</title>
+<style>
+  :root{
+    --bg:#07080A; --paper:#F1EADA; --muted:#9C9486; --hair:rgba(241,234,218,.16);
+    --amber:#E9B44C; --steel:#A9C6C0; --rust:#B4472F;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--paper);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 64px}
+  .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:22px}
+  .kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  h1{font-size:clamp(28px,7vw,46px);line-height:1.02;margin:18px 0 6px;font-weight:600;letter-spacing:-.01em}
+  h1 span{color:var(--amber)}
+  .sub{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 22px}
+  .stage{position:relative;background:#000;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+  video{display:block;width:100%;height:auto;background:#000}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px}
+  .btn{flex:1 1 220px;display:flex;align-items:center;justify-content:center;gap:10px;
+    text-decoration:none;padding:17px 20px;border-radius:11px;font-weight:700;font-size:16px;
+    background:linear-gradient(180deg,#F3C65C,#DDA02F);color:#241703;border:0;
+    box-shadow:0 10px 26px rgba(233,180,76,.20)}
+  .btn:active{transform:translateY(1px)}
+  .btn.alt{background:transparent;color:var(--paper);border:1px solid var(--hair);
+    box-shadow:none;font-weight:600;font-size:14px}
+  .meta{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:12px}
+  .meta b{color:var(--paper);font-weight:600}
+  .chapters{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;margin:26px 0 0;
+    padding:0;list-style:none}
+  .chapters button{width:100%;text-align:left;cursor:pointer;background:rgba(241,234,218,.03);
+    border:1px solid var(--hair);color:var(--paper);border-radius:9px;padding:10px 12px;font:inherit}
+  .chapters button:hover{background:rgba(241,234,218,.07)}
+  .chapters .n{font-size:10px;letter-spacing:.2em;color:var(--muted);display:block;margin-bottom:3px}
+  .chapters .t{font-size:12.5px;line-height:1.3}
+  .chapters .a{color:var(--amber)} .chapters .s{color:var(--steel)}
+  .foot{margin-top:26px;border-top:1px solid var(--hair);padding-top:16px;color:var(--muted);font-size:12px;line-height:1.7}
+  code{display:block;margin-top:8px;padding:11px 13px;border-radius:8px;background:rgba(241,234,218,.05);
+    border:1px solid var(--hair);color:#cfd8d1;font-size:11px;word-break:break-all;-webkit-user-select:all;user-select:all}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="kicker">A video essay in ten parts</div>
+    <div class="kicker">2:00 &middot; 1080&times;1920</div>
+  </div>
+
+  <h1>Better villain: Gus.<br>Better antagonist: <span>Lalo.</span></h1>
+  <p class="sub">Why the man who smiles beats the man who plans. Narrated, captioned, drawn entirely in code.</p>
+
+  <div class="stage">
+    <video id="v" controls playsinline preload="metadata"
+      poster="renders/lalo/poster.png"
+      src="renders/lalo/lalo-vs-gus.mp4"></video>
+  </div>
+
+  <div class="bar">
+    <a class="btn" id="dl" href="renders/lalo/lalo-vs-gus.mp4?dl=1" download="lalo-vs-gus.mp4">
+      Download MP4 &middot; 15 MB
+    </a>
+    <a class="btn alt" href="https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/lalo-vs-gus.mp4"
+       target="_blank" rel="noopener">Mirror (GitHub)</a>
+  </div>
+
+  <div class="meta">
+    <span><b>120.00 s</b> &middot; exactly 2 min</span>
+    <span><b>1080&times;1920</b> vertical</span>
+    <span><b>30 fps</b> H.264 + AAC</span>
+    <span><b>10</b> chapters</span>
+  </div>
+
+  <ul class="chapters" id="chips"></ul>
+
+  <div class="foot">
+    If the download button is blocked by a sandboxed viewer, copy this link and open it in your browser:
+    <code>https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/lalo-vs-gus.mp4</code>
+  </div>
+</div>
+
+<script>
+  // if the page is opened where relative paths don't resolve (e.g. a sandboxed
+  // file viewer), fall back to the hosted mirror instead of a black player
+  var MIRROR = "https://raw.githubusercontent.com/michaelakoury24-gif/awesome-opus5-5-videos/arena/8f9001e0-awesome-opus5-5-videos/renders/lalo/";
+  var v0 = document.getElementById("v"), swapped = false;
+  v0.addEventListener("error", function () {
+    if (swapped) return;
+    swapped = true;
+    v0.src = MIRROR + "lalo-vs-gus.mp4";
+    v0.load();
+  });
+  var beats = [
+    ["I", "The hook", 0, "a"], ["II", "The case for Gus", 12, "s"],
+    ["III", "Procedural menace", 24, "s"], ["IV", "The entrance", 36, "a"],
+    ["V", "Camouflage", 48, "a"], ["VI", "Improvisation", 60, "a"],
+    ["VII", "The audience problem", 72, "r"], ["VIII", "Wall & door", 84, "a"],
+    ["IX", "The threat", 96, "a"], ["X", "The verdict", 108, "a"]
+  ];
+  var v = document.getElementById("v");
+  var chips = document.getElementById("chips");
+  beats.forEach(function (b) {
+    var li = document.createElement("li");
+    var btn = document.createElement("button");
+    btn.innerHTML = '<span class="n">' + b[0] + " &middot; " + (b[2] / 60 | 0) + ":" +
+      ("0" + (b[2] % 60)).slice(-2) + '</span><span class="t ' + b[3] + '">' + b[1] + "</span>";
+    btn.onclick = function () {
+      v.currentTime = b[2] + 0.05;
+      v.play();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    li.appendChild(btn);
+    chips.appendChild(li);
+  });
+</script>
+</body>
+</html>
